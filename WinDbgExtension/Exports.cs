@@ -18,8 +18,8 @@ namespace WinDbgExtensions
         [DllExport("mycommand")]
         public static UInt32 MyCommand(IntPtr debugClientPointer, [MarshalAs(UnmanagedType.LPStr)] string args)
         {
-            Command command = new Command(debugClientPointer);
-            command.DoStuff(args);
+            MyCommand myCommand = new MyCommand(debugClientPointer);
+            myCommand.DoStuff(args);
             return 0;
         }
 

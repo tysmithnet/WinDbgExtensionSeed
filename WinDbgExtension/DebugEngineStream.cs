@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using Microsoft.Diagnostics.Runtime.Interop;
 
@@ -37,7 +38,7 @@ namespace WinDbgExtension
 
         public override void Write(byte[] buffer, int offset, int count)
         {
-            string toBeWritten = Encoding.UTF8.GetString(buffer, offset, count);
+            string toBeWritten = Encoding.UTF8.GetString(buffer, offset, count);   
             debugControl.ControlledOutput(DEBUG_OUTCTL.AMBIENT_DML, DEBUG_OUTPUT.NORMAL, toBeWritten);
         }
 
